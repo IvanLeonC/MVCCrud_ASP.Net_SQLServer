@@ -1,0 +1,35 @@
+﻿@model MVCCrud.Models.ViewModels.ClienteViewModel
+@{
+    ViewBag.Title = "NuevoCliente";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+@using (Html.BeginForm("NuevoCliente", "Cliente", FormMethod.Post))
+{
+<div class="row">
+    <div class="col-md-12">
+        <div>
+            @Html.LabelFor(d => d.NombreCliente)
+            @Html.TextBoxFor(d => d.NombreCliente, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.NombreCliente, null, new { @class = "red" })
+        </div>
+        <div>
+            @Html.LabelFor(d => d.CorreoCliente)
+            @Html.TextBoxFor(d => d.CorreoCliente, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.CorreoCliente, null, new { @class = "red" })
+        </div>
+        <div>
+            @Html.LabelFor(d => d.FechaNacimiento) <br>
+            @Html.EditorFor(d => d.FechaNacimiento, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.FechaNacimiento, null, new { @class = "red" })
+        </div>
+
+        <div>
+            <br />
+            <input value="Guardar" class="btn btn-primary" type="submit" />
+        </div>
+    </div>
+        </div>
+}

@@ -1,0 +1,36 @@
+﻿@model MVCCrud.Models.ViewModels.ProveedorViewModel
+@{
+    ViewBag.Title = "EditarProveedor";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+@using (Html.BeginForm("EditarProveedor", "Proveedor", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            @Html.HiddenFor(dp => dp.IdProveedor)
+            <div>
+                @Html.LabelFor(dp => dp.NombreProveedor)
+                @Html.TextBoxFor(dp => dp.NombreProveedor, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(dp => dp.NombreProveedor, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(dp => dp.Empresa)
+                @Html.TextBoxFor(dp => dp.Empresa, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(dp => dp.Empresa, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(dp => dp.Cedula) <br>
+                @Html.EditorFor(dp => dp.Cedula, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(dp => dp.Cedula, null, new { @class = "red" })
+            </div>
+
+            <div>
+                <br />
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+            </div>
+        </div>
+    </div>
+}

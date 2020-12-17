@@ -1,0 +1,40 @@
+﻿@model List<MVCCrud.Models.ViewModels.ListTablaViewModelCliente>
+@{
+    ViewBag.Title = "Registrar Cliente";
+}
+
+<h2>@ViewBag.Title</h2>
+<div>
+    <img src="~/Content/img/cliente.png" />
+</div>
+<div class="row" style="text-align:right; padding:5px;">
+    <a href="~/Cliente/NuevoCliente" class="btn btn-primary">Nuevo</a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Nacimiento</th>
+                <th></th>
+            </tr>
+            @foreach (var oElemento in Model)
+            {
+        <tr>
+            <td>@oElemento.IdCliente</td>
+            <td>@oElemento.NombreCliente</td>
+            <td>@oElemento.CorreoCliente</td>
+            <td>@oElemento.FechaNacimiento</td>
+            <td>
+                <a class="btn btn-default" href="~/Cliente/EditarCliente/@oElemento.IdCliente">Modificar</a>
+                <a class="btn btn-danger" href="~/Cliente/EliminarCliente/@oElemento.IdCliente">Eliminar</a>
+            </td>
+        </tr>
+            }
+        </table>
+
+    </div>
+</div>
+
